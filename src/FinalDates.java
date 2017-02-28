@@ -13,21 +13,22 @@ public class FinalDates {
         FileWriter fw = null;
         BufferedWriter bw = null;
         int date, month, year;
+        String dow;
         try {
             Scanner scanner = new Scanner(input);
-            while (scanner.hasNextLine()) {
+            while (scanner.hasNextInt()) {
                 date = scanner.nextInt();
                 month = scanner.nextInt();
                 year = scanner.nextInt() - 2000;
-/*
+                dow = scanner.next();
+
                 if (isPrime(date + month + year)) {
                     //fw = new FileWriter(output, true);
                     //bw = new BufferedWriter(fw);
                     year += 2000;
-                    String result = date + "/" + month + "-" +year +"\r\n";
+                    String result = date + "/" + month + "-" + year + "  " + dow + "\r\n";
                     System.out.print(result);
                 }
-*/
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
