@@ -1,4 +1,9 @@
 import java.io.*;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -19,8 +24,12 @@ public class FindPrimeDates {
             bw = new BufferedWriter(fw);
             while (scanner.hasNextLine()) {
                 String temp = scanner.nextLine();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                LocalDate localDate = LocalDate.parse(temp, formatter);
+                DayOfWeek dow = localDate.getDayOfWeek();
+                String output = dow.getDisplayName(TextStyle.FULL, Locale.UK);
                 String removedSlash = temp.replaceAll("/", " ");
-                removedSlash = removedSlash + "\r\n";
+                removedSlash = removedSlash + "  " + output + "\r\n";
                 bw.write(removedSlash);
             }
         } catch (FileNotFoundException e) {
