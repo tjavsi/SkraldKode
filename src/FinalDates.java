@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public class FinalDates {
     private static File input = new File("C:\\Users\\sOkE\\Desktop\\datesoutput.txt");
-    private static String output = "C:\\Users\\sOkE\\Desktop\\finaldatesoutput.txt";
+    private static String output = "C:\\Users\\sOkE\\Desktop\\finaldatesoutput1.txt";
 
     public static void main(String[] args) {
         FileWriter fw = null;
@@ -21,10 +21,9 @@ public class FinalDates {
             while (scanner.hasNextInt()) {
                 date = scanner.nextInt();
                 month = scanner.nextInt();
-                year = scanner.nextInt() - 2000;
+                year = scanner.nextInt();
                 dow = scanner.next();
                 if (isPrime(date + month + year)) {
-                    year += 2000;
                     String result = date + "/" + month + "-" + year + "  " + dow + "\r\n";
                     bw.write(result);
                 }
